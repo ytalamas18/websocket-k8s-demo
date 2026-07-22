@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websocket-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: websocket-app
+  template:
+    metadata:
+      labels:
+        app: websocket-app
+    spec:
+      containers:
+      - name: websocket-container
+        image: ws-practice-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+
