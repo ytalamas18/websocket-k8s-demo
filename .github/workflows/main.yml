@@ -16,8 +16,8 @@ jobs:
 
       - name: Debug Secret Presence
         run: |
-          if [ -z "${{ secrets.AWS_ACCESS_KEY_ID }}" ]; then
-            echo "LA VARIABLE AWS_ACCESS_KEY_ID ESTA VACIA"
+          if [ -z "${{ secrets.AWS_SECRET_ACCESS_KEY }}" ]; then
+            echo "LA VARIABLE AWS_SECRET_ACCESS_KEY ESTA VACIA"
             exit 1
           else
             echo "La variable existe y tiene texto"
