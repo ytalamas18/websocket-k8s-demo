@@ -16,8 +16,8 @@ jobs:
 
       - name: Debug Secret Presence
         run: |
-          if [ -z "${{ secrets.AWS_SECRET_ACCESS_KEY }}" ]; then
-            echo "LA VARIABLE AWS_SECRET_ACCESS_KEY ESTA VACIA"
+          if [ -z "${{ secrets.AWS_ACCESS_KEY_ID }}" ]; then
+            echo "LA VARIABLE AWS_ACCESS_KEY_ID ESTA VACIA"
             exit 1
           else
             echo "La variable existe y tiene texto"
@@ -26,6 +26,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
           aws-region: ${{secrets.AWS_REGION}}
           audience: sts.amazonaws.com
