@@ -14,6 +14,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Debug Secret Presence
+        run: |
+          if [ -z "${{ secrets.AWS_ACCESS_KEY_ID }}" ]; then
+            echo "LA VARIABLE AWS_ACCESS_KEY_ID ESTA VACIA"
+            exit 1
+          else
+            echo "La variable existe y tiene texto"
+          fi
       #Configure AWS credentials
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
