@@ -56,5 +56,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{secrets.DOCKER_USERNAME}}/ws-practice-app:latest
+            ${{secrets.DOCKERHUB_USERNAME}}/ws-practice-app:latest
             ${{steps.login-ecr.outputs.registry}}/websocket-k8s-demo:latest
